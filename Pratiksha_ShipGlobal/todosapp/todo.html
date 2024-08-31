@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Your List of Todos !</h1>
+    <div class="add">
+    <input    type="text"    id="todoText"    class="todo-input"
+    placeholder="Add your items"/>
+    <button class="todoadd "   onchange= "CreateToDoItems();">Add your todos</button>
+    </div>
+
+    <h5 id="Alert"></h5>
+<ul id="list-items" class="list-items"></ul>
+
+    <div class="container">
+        
+        <div class="card" id="backlog">
+          
+            <h2>Backlog</h2>
+            <ul class="todo-list" id="backlog-list"></ul>
+            <div class="buttons">
+                <button disabled>&larr; Back</button>
+                <button onclick="moveToNext('backlog', 'todo')">Next &rarr;</button>
+            </div>
+        </div>
+
+        <div class="card" id="todo">
+            <h2>To Do</h2>
+            <ul class="todo-list" id="todo-list"></ul>
+            <div class="buttons">
+                <button onclick="moveToPrev('todo', 'backlog')">&larr; Back</button>
+                <button onclick="moveToNext('todo', 'ongoing')">Next &rarr;</button>
+            </div>
+        </div>
+
+        <div class="card" id="ongoing">
+            <h2>Ongoing</h2>
+            <ul class="todo-list" id="ongoing-list"></ul>
+            <div class="buttons">
+                <button onclick="moveToPrev('ongoing', 'todo')">&larr; Back</button>
+                <button onclick="moveToNext('ongoing', 'done')">Next &rarr;</button>
+            </div>
+        </div>
+
+        <div class="card" id="done">
+            <h2>Done</h2>
+            <ul class="todo-list" id="done-list"></ul>
+            <div class="buttons">
+                <button onclick="moveToPrev('done', 'ongoing')">&larr; Back</button>
+                <button disabled>Next &rarr;</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="todo.js"></script>
+</body>
+</html>
